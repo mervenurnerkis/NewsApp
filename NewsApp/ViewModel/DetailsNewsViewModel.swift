@@ -21,4 +21,5 @@ class DetailsNewsViewModel {
         self.newsDescription = article.description ?? ""
         self.newsImage = URL(string: article.urlToImage ?? "")
     }
+    
 }

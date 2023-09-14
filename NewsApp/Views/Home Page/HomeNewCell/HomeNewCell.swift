@@ -32,10 +32,10 @@ class HomeNewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        backView.addBorder(color: .label, width: 1)
+    //    backView.addBorder(color: .label, width: 1)
     
         
-        newImageView.layer.cornerRadius = 5
+      //  newImageView.layer.cornerRadius = 5
     }
     
     func setupCell(homeViewModel: NewTableCellViewModel) {

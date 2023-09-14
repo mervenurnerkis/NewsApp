@@ -1,6 +1,6 @@
 import UIKit
 
-class HomeVC: UIViewController{
+class HomeVC: UIViewController, UISearchBarDelegate{
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -23,7 +23,7 @@ class HomeVC: UIViewController{
         
         configView()
         bindViewModel()
-        createSearchBar()
+       // createSearchBar()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -37,7 +37,6 @@ class HomeVC: UIViewController{
     }
     
     func configView() {
-        self.title = "Main View"
         
         setupTableView()
     }
@@ -79,8 +78,28 @@ class HomeVC: UIViewController{
         }
     }
     
-   func createSearchBar() {
+   /* func createSearchBar() {
+        searchVC.searchBar.delegate = self
         navigationItem.searchController = searchVC
+    } */
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchKeyword = searchText
+        filterNews()
+    }
+    
+    func filterNews() {
+        guard !searchKeyword.isEmpty else {
+            self.cellDataSource = homeViewModel.news.value ?? []
+            reloadTableView()
+            return
+        }
+        
+        self.cellDataSource = homeViewModel.news.value?.filter { viewModel in
+            return viewModel.title.lowercased().contains(searchKeyword.lowercased())
+        } ?? []
+        
+        reloadTableView()
     }
     
 }

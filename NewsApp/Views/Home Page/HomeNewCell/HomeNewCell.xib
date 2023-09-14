@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,43 +21,49 @@
                         <rect key="frame" x="16" y="8" width="363" height="184"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mko-jW-mKZ">
-                                <rect key="frame" x="139" y="6" width="216" height="22"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mko-jW-mKZ">
+                                <rect key="frame" x="139" y="-8" width="62" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="Rd2-F3-Y5U"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" name="darkBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Descrpit" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CyC-q8-64a">
-                                <rect key="frame" x="139" y="36" width="216" height="39"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jPW-P1-Sax">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jPW-P1-Sax">
                                 <rect key="frame" x="0.0" y="0.0" width="137" height="184"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="137" id="JUh-9v-TB9"/>
+                                    <constraint firstAttribute="height" constant="184" id="bBk-Jw-ehQ"/>
+                                    <constraint firstAttribute="width" constant="137" id="hEt-fy-lor"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" misplaced="YES" text="Descrpit" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CyC-q8-64a">
+                                <rect key="frame" x="139" y="29" width="61.666666666666686" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Crx-Tg-2Ef"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Crx-Tg-2Ef" firstAttribute="trailing" secondItem="Mko-jW-mKZ" secondAttribute="trailing" constant="8" id="1zQ-y4-4eb"/>
-                            <constraint firstItem="jPW-P1-Sax" firstAttribute="leading" secondItem="Crx-Tg-2Ef" secondAttribute="leading" id="IRL-94-Ftm"/>
+                            <constraint firstAttribute="bottom" secondItem="jPW-P1-Sax" secondAttribute="bottom" id="5dF-fb-iH8"/>
                             <constraint firstItem="Mko-jW-mKZ" firstAttribute="leading" secondItem="jPW-P1-Sax" secondAttribute="trailing" constant="2" id="MBS-yE-NeQ"/>
-                            <constraint firstItem="Crx-Tg-2Ef" firstAttribute="bottom" secondItem="jPW-P1-Sax" secondAttribute="bottom" id="MRu-4o-EQX"/>
                             <constraint firstItem="CyC-q8-64a" firstAttribute="top" secondItem="Mko-jW-mKZ" secondAttribute="bottom" constant="8" symbolic="YES" id="QmO-pm-VFa"/>
-                            <constraint firstItem="jPW-P1-Sax" firstAttribute="top" secondItem="T8S-97-kbc" secondAttribute="top" id="Xdz-fs-106"/>
                             <constraint firstItem="Crx-Tg-2Ef" firstAttribute="bottom" secondItem="CyC-q8-64a" secondAttribute="bottom" constant="109" id="fYB-FM-niU"/>
                             <constraint firstItem="Mko-jW-mKZ" firstAttribute="top" secondItem="T8S-97-kbc" secondAttribute="top" constant="6" id="kgC-7z-DQA"/>
                             <constraint firstItem="CyC-q8-64a" firstAttribute="leading" secondItem="jPW-P1-Sax" secondAttribute="trailing" constant="2" id="nRh-1L-oZJ"/>
                             <constraint firstItem="Crx-Tg-2Ef" firstAttribute="bottom" secondItem="Mko-jW-mKZ" secondAttribute="bottom" constant="156" id="oQu-cd-utA"/>
+                            <constraint firstItem="jPW-P1-Sax" firstAttribute="leading" secondItem="T8S-97-kbc" secondAttribute="leading" id="uKo-Ok-HYk"/>
                             <constraint firstItem="Crx-Tg-2Ef" firstAttribute="trailing" secondItem="CyC-q8-64a" secondAttribute="trailing" constant="8" id="xuI-XK-4Ci"/>
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                        <real key="value" value="30"/>
+                    </userDefinedRuntimeAttribute>
+                </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -69,4 +76,9 @@
             <point key="canvasLocation" x="46.564885496183201" y="-6.6901408450704229"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <namedColor name="darkBlue">
+            <color red="0.17647058823529413" green="0.17647058823529413" blue="0.27450980392156865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

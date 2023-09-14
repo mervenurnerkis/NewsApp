@@ -37,9 +37,13 @@ class OnboardingVC: UIViewController {
         ]
         if UserDefaults.standard.bool(forKey: "ISLOGGEDIN") == true {
             let storyboard = UIStoryboard(name: "HomeVC", bundle: nil)
-            if let webVC = storyboard.instantiateViewController(withIdentifier: "HomeVC") as? HomeVC {
-                self.navigationController?.pushViewController(webVC, animated: false)
-            }
+            let webVC = storyboard.instantiateViewController(withIdentifier: "TabbarVC") 
+            self.navigationController?.pushViewController(webVC, animated: false)
+            
+           /* UserDefaults.standard.set(true, forKey: "ISLOGGEDIN")
+            let main = UIStoryboard(name: "HomeVC", bundle: nil)
+            let home = main.instantiateViewController(withIdentifier: "TabbarVC")
+            self.present(home, animated: true, completion: nil) */
         }
     }
     

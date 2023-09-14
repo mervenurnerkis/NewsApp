@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -10,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailsNewVC" customModule="NewsApp" customModuleProvider="target">
             <connections>
+                <outlet property="favoriteButton" destination="sXb-2e-4Ni" id="ijs-Ew-Ke5"/>
                 <outlet property="imageView" destination="8vu-7E-RCR" id="W6v-Od-6mO"/>
                 <outlet property="newsDescription" destination="xQF-qE-Bip" id="L92-AR-Bwa"/>
                 <outlet property="newsTitle" destination="N9L-bS-4pH" id="lJA-s9-x3T"/>
@@ -17,63 +19,79 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="500" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQF-qE-Bip">
-                    <rect key="frame" x="8" y="590" width="377" height="58"/>
+                    <rect key="frame" x="8" y="509" width="377" height="289"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="58" id="RvJ-ML-KvD"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="228" id="RVR-X0-CEw"/>
+                        <constraint firstAttribute="height" constant="289" id="TW9-D4-wnf"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8vu-7E-RCR">
-                    <rect key="frame" x="0.0" y="59" width="393" height="227"/>
+                    <rect key="frame" x="0.0" y="59" width="393" height="306"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="306" id="6GS-By-s8H"/>
+                    </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sXb-2e-4Ni">
-                    <rect key="frame" x="313" y="305" width="64" height="35"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
-                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="250" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N9L-bS-4pH">
-                    <rect key="frame" x="8" y="366" width="377" height="74"/>
+                    <rect key="frame" x="8" y="405" width="377" height="74"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="74" id="Slg-H8-f0c"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                    <color key="textColor" name="darkBlue"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sXb-2e-4Ni">
+                    <rect key="frame" x="313" y="384" width="64" height="35"/>
+                    <color key="tintColor" red="0.55686277149999996" green="0.1607843041" blue="0.14509806040000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
+                    <connections>
+                        <action selector="favoriteButtonTapped:" destination="-1" eventType="touchUpInside" id="XHl-T7-bgV"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemGreenColor"/>
+            <color key="backgroundColor" systemColor="systemGray5Color"/>
             <constraints>
-                <constraint firstItem="N9L-bS-4pH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="366" id="4O0-J1-y6S"/>
+                <constraint firstItem="N9L-bS-4pH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="575-wg-CFu"/>
                 <constraint firstItem="xQF-qE-Bip" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="5lI-fc-USw"/>
                 <constraint firstItem="sXb-2e-4Ni" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="313" id="EdZ-On-JDa"/>
                 <constraint firstItem="N9L-bS-4pH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="HFI-4P-cae"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="N9L-bS-4pH" secondAttribute="trailing" constant="8" id="IxV-TO-g0Y"/>
                 <constraint firstItem="8vu-7E-RCR" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Jtr-BO-4bX"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xQF-qE-Bip" secondAttribute="trailing" constant="8" id="Kll-rm-gg3"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xQF-qE-Bip" secondAttribute="trailing" constant="8" id="QfY-vR-fqN"/>
+                <constraint firstItem="N9L-bS-4pH" firstAttribute="top" secondItem="8vu-7E-RCR" secondAttribute="bottom" constant="40" id="Zld-wb-hx8"/>
                 <constraint firstItem="sXb-2e-4Ni" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="aRR-Vu-AsA"/>
                 <constraint firstItem="N9L-bS-4pH" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="aa5-Rc-CZQ"/>
-                <constraint firstItem="N9L-bS-4pH" firstAttribute="top" secondItem="sXb-2e-4Ni" secondAttribute="bottom" constant="26" id="fZ9-fM-6jL"/>
+                <constraint firstItem="8vu-7E-RCR" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="amz-OH-nxM"/>
+                <constraint firstItem="8vu-7E-RCR" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="fVZ-n7-a9L"/>
+                <constraint firstItem="xQF-qE-Bip" firstAttribute="top" secondItem="N9L-bS-4pH" secondAttribute="bottom" constant="30" id="gys-SC-uFZ"/>
                 <constraint firstItem="xQF-qE-Bip" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="h27-va-H0f"/>
+                <constraint firstItem="xQF-qE-Bip" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="hQS-1b-s3b"/>
                 <constraint firstItem="sXb-2e-4Ni" firstAttribute="top" secondItem="8vu-7E-RCR" secondAttribute="bottom" constant="19" id="kjC-fs-ESO"/>
                 <constraint firstItem="8vu-7E-RCR" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ndh-tX-6b7"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="xQF-qE-Bip" secondAttribute="bottom" constant="170" id="ntJ-OQ-Io3"/>
                 <constraint firstItem="8vu-7E-RCR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="rd1-ts-qbe"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="N9L-bS-4pH" secondAttribute="trailing" constant="8" id="w7Q-p5-WMh"/>
             </constraints>
             <point key="canvasLocation" x="104.58015267175573" y="-12.67605633802817"/>
         </view>
     </objects>
     <resources>
         <image name="heart" catalog="system" width="128" height="107"/>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="darkBlue">
+            <color red="0.17647058823529413" green="0.17647058823529413" blue="0.27450980392156865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
