@@ -13,6 +13,11 @@
 		FD49D76E2AB5BA7F0061F3E4 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FD49D76D2AB5BA7F0061F3E4 /* FirebaseFirestore */; };
 		FD49D7702AB5BA7F0061F3E4 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = FD49D76F2AB5BA7F0061F3E4 /* FirebaseStorage */; };
 		FD49D7762AB5CB150061F3E4 /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD49D7752AB5CB150061F3E4 /* FavoriteCell.swift */; };
+		FD49D7792AB70FE60061F3E4 /* SideVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD49D7782AB70FE60061F3E4 /* SideVC.swift */; };
+		FD49D77C2AB737280061F3E4 /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = FD49D77B2AB737280061F3E4 /* SideMenu */; };
+		FD49D77E2AB7420C0061F3E4 /* SideMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD49D77D2AB7420C0061F3E4 /* SideMenuViewModel.swift */; };
+		FD49D7802AB743380061F3E4 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD49D77F2AB743380061F3E4 /* Category.swift */; };
+		FD49D7822AB744B80061F3E4 /* SideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD49D7812AB744B80061F3E4 /* SideMenuCell.swift */; };
 		FD5103D22AA71C8300137CEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5103D12AA71C8300137CEA /* AppDelegate.swift */; };
 		FD5103D42AA71C8300137CEA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5103D32AA71C8300137CEA /* SceneDelegate.swift */; };
 		FD5103DB2AA71C8500137CEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD5103DA2AA71C8500137CEA /* Assets.xcassets */; };
@@ -50,6 +55,10 @@
 		FD3056BD2AAE504300DEC509 /* ProfilVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilVC.swift; sourceTree = "<group>"; };
 		FD49D76B2AB59A070061F3E4 /* FavoriteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteCell.xib; sourceTree = "<group>"; };
 		FD49D7752AB5CB150061F3E4 /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
+		FD49D7782AB70FE60061F3E4 /* SideVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideVC.swift; sourceTree = "<group>"; };
+		FD49D77D2AB7420C0061F3E4 /* SideMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewModel.swift; sourceTree = "<group>"; };
+		FD49D77F2AB743380061F3E4 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		FD49D7812AB744B80061F3E4 /* SideMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuCell.swift; sourceTree = "<group>"; };
 		FD5103CE2AA71C8300137CEA /* NewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD5103D12AA71C8300137CEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD5103D32AA71C8300137CEA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +99,7 @@
 				FD9048042AAB1B9C00E48972 /* SDWebImage in Frameworks */,
 				FD49D7702AB5BA7F0061F3E4 /* FirebaseStorage in Frameworks */,
 				FDA975E52AA9B2B8003D8E8F /* FirebaseAuth in Frameworks */,
+				FD49D77C2AB737280061F3E4 /* SideMenu in Frameworks */,
 				FD49D76E2AB5BA7F0061F3E4 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -120,6 +130,15 @@
 				FD49D7752AB5CB150061F3E4 /* FavoriteCell.swift */,
 			);
 			path = FavoriteCell;
+			sourceTree = "<group>";
+		};
+		FD49D7772AB70FBA0061F3E4 /* Side Menu */ = {
+			isa = PBXGroup;
+			children = (
+				FD49D7782AB70FE60061F3E4 /* SideVC.swift */,
+				FD49D7812AB744B80061F3E4 /* SideMenuCell.swift */,
+			);
+			path = "Side Menu";
 			sourceTree = "<group>";
 		};
 		FD5103C52AA71C8300137CEA = {
@@ -229,6 +248,7 @@
 				FDA975DB2AA85132003D8E8F /* OnboardingSlide.swift */,
 				FDA975EB2AA9ED2A003D8E8F /* LoginInfos.swift */,
 				FDA975F92AAA4344003D8E8F /* News.swift */,
+				FD49D77F2AB743380061F3E4 /* Category.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -243,6 +263,7 @@
 		FDA975E62AA9D689003D8E8F /* Home Page */ = {
 			isa = PBXGroup;
 			children = (
+				FD49D7772AB70FBA0061F3E4 /* Side Menu */,
 				FD301E392AB45FAE007D053B /* Favorites */,
 				FD9048052AAB294B00E48972 /* DetailsNew */,
 				FD9047FB2AAB043C00E48972 /* HomeNewCell */,
@@ -260,6 +281,7 @@
 				FDA975F32AAA2EEB003D8E8F /* HomeViewModel.swift */,
 				FD9048002AAB09E200E48972 /* NewTableCellViewModel.swift */,
 				FD90480A2AAB2B5200E48972 /* DetailsNewsViewModel.swift */,
+				FD49D77D2AB7420C0061F3E4 /* SideMenuViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -310,6 +332,7 @@
 				FD9048032AAB1B9C00E48972 /* SDWebImage */,
 				FD49D76D2AB5BA7F0061F3E4 /* FirebaseFirestore */,
 				FD49D76F2AB5BA7F0061F3E4 /* FirebaseStorage */,
+				FD49D77B2AB737280061F3E4 /* SideMenu */,
 			);
 			productName = NewsApp;
 			productReference = FD5103CE2AA71C8300137CEA /* NewsApp.app */;
@@ -342,6 +365,7 @@
 			packageReferences = (
 				FDA975C92AA7C872003D8E8F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				FD9048022AAB1B9C00E48972 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				FD49D77A2AB737280061F3E4 /* XCRemoteSwiftPackageReference "SideMenu" */,
 			);
 			productRefGroup = FD5103CF2AA71C8300137CEA /* Products */;
 			projectDirPath = "";
@@ -385,10 +409,13 @@
 				FDA975D42AA84B2B003D8E8F /* LoginVC.swift in Sources */,
 				FDA975FA2AAA4344003D8E8F /* News.swift in Sources */,
 				FDA975F82AAA3BA5003D8E8F /* APICaller.swift in Sources */,
+				FD49D7802AB743380061F3E4 /* Category.swift in Sources */,
 				FD3056BE2AAE504300DEC509 /* ProfilVC.swift in Sources */,
 				FD9048012AAB09E200E48972 /* NewTableCellViewModel.swift in Sources */,
 				FD90480B2AAB2B5200E48972 /* DetailsNewsViewModel.swift in Sources */,
 				FD5103D42AA71C8300137CEA /* SceneDelegate.swift in Sources */,
+				FD49D7822AB744B80061F3E4 /* SideMenuCell.swift in Sources */,
+				FD49D7792AB70FE60061F3E4 /* SideVC.swift in Sources */,
 				FDA975EA2AA9D6C0003D8E8F /* HomeVC.swift in Sources */,
 				FDA975D92AA84E8D003D8E8F /* UIView+Extension.swift in Sources */,
 				FDA975EC2AA9ED2A003D8E8F /* LoginInfos.swift in Sources */,
@@ -398,6 +425,7 @@
 				FDA975DE2AA8534F003D8E8F /* OnboardingCollectionViewCell.swift in Sources */,
 				FDA975F22AAA2C5C003D8E8F /* HomeVC+TableView.swift in Sources */,
 				FDA975CF2AA846CB003D8E8F /* OnboardingVC.swift in Sources */,
+				FD49D77E2AB7420C0061F3E4 /* SideMenuViewModel.swift in Sources */,
 				FD9047FE2AAB046A00E48972 /* HomeNewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -610,6 +638,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		FD49D77A2AB737280061F3E4 /* XCRemoteSwiftPackageReference "SideMenu" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jonkykong/SideMenu.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		FD9048022AAB1B9C00E48972 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
@@ -638,6 +674,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FDA975C92AA7C872003D8E8F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		FD49D77B2AB737280061F3E4 /* SideMenu */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FD49D77A2AB737280061F3E4 /* XCRemoteSwiftPackageReference "SideMenu" */;
+			productName = SideMenu;
 		};
 		FD9048032AAB1B9C00E48972 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;

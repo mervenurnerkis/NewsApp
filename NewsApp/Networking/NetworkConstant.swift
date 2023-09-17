@@ -35,4 +35,6 @@ class NetworkConstant {
        // https://newsapi.org/v2/top-headlines?category=business&apiKey=027c4dbd555e4ebfb1db490cdbbd9c3d
         }
     }
+    
+
 }

@@ -16,7 +16,7 @@ class NewTableCellViewModel {
     var imageData: Data? = nil
     
     init(news: Article) {
-        self.title = news.title
+        self.title = news.title ?? ""
         self.description = news.description ?? ""
         self.imageUrl = URL(string: news.urlToImage ?? "")  // Doğrudan API'dan alınan urlToImage'ı kullan
     }

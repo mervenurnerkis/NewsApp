@@ -17,7 +17,7 @@ class DetailsNewsViewModel {
     
     init(article: Article) {
         self.newData = article
-        self.newsTitle = article.title
+        self.newsTitle = article.title!
         self.newsDescription = article.description ?? ""
         self.newsImage = URL(string: article.urlToImage ?? "")
     }

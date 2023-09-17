@@ -13,6 +13,8 @@ class HomeViewModel {
     var news: Observable<[NewTableCellViewModel]> = Observable(nil)
     var dataSource: News?
     
+    var categories: String = "default"
+    
     func numberOfSections() -> Int {
         1
     }
@@ -40,6 +42,25 @@ class HomeViewModel {
         }
     }
     
+    func getCategoriesData() {
+        if isLoading.value ?? true {
+            return
+        }
+        
+        isLoading.value = true
+        APICaller.fetchCategoryData { [weak self] result in
+            self?.isLoading.value = false
+            
+            switch result {
+            case .success(let NewsCategory):
+                self?.dataSource = NewsCategory
+                self?.mapMovieData()
+            case .failure(let err):
+                print(err)
+            }
+        }
+    } 
+    
     func mapMovieData() {
         news.value = self.dataSource?.articles.compactMap({NewTableCellViewModel(news: $0)})
     }
@@ -56,5 +77,9 @@ class HomeViewModel {
         return movie
     }
     
+
+    // HomeVC'de
+
+
     
 }

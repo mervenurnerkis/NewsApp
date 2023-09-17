@@ -109,6 +109,15 @@
       }
     },
     {
+      "identity" : "sidemenu",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jonkykong/SideMenu.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "8bd4fd128923cf5494fa726839af8afe12908ad9"
+      }
+    },
+    {
       "identity" : "swift-protobuf",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-protobuf.git",
