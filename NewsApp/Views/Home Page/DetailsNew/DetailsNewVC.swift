@@ -21,18 +21,31 @@ class DetailsNewVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-               configView()
-               checkIfFavorite()
-               
-               // Bu satırı ekleyerek butonun tıklanabilir olduğunu doğrulayalım.
-               favoriteButton.addTarget(self, action: #selector(favoriteButtonTapped(_:)), for: .touchUpInside)
+        
+        configView()
+        checkIfFavorite()
+        
+      //  favoriteButton.addTarget(self, action: #selector(favoriteButtonTapped(_:)), for: .touchUpInside)
+        self.navigationController?.navigationBar.tintColor = UIColor.darkGray
     }
     
-    @objc @IBAction func favoriteButtonTapped(_ sender: Any) {
-        print("Favori butonuna tıklandı")  // Bu satırı ekleyerek butonun tıklandığını görebiliriz.
-        toggleFavorite()
+    
+    @IBAction func favoriButtonTapped(_ sender: UIButton) {
+        print("Favori butonuna tıklandı")
+        let isFavorite = UserDefaults.standard.bool(forKey: viewModel.newsTitle)
+        UserDefaults.standard.set(!isFavorite, forKey: viewModel.newsTitle)
+        checkIfFavorite()
+        
+        
+        if !isFavorite {
+            if let encoded = try? JSONEncoder().encode(viewModel.newData) {
+                UserDefaults.standard.set(encoded, forKey: "favorite_\(viewModel.newsTitle)")
+            }
+        } else {
+            UserDefaults.standard.removeObject(forKey: "favorite_\(viewModel.newsTitle)")
+        }
     }
+    
     
     func configView() {
         self.title = "News Details"
@@ -41,21 +54,25 @@ class DetailsNewVC: UIViewController {
         imageView.sd_setImage(with: viewModel.newsImage, completed: nil)
     }
     
-    // Favori olup olmadığını kontrol et
-    func checkIfFavorite() {
-            if UserDefaults.standard.bool(forKey: viewModel.newsTitle) {
-                // Favori olarak işaretlendi
-                favoriteButton.setTitle("❤️", for: .normal)
-            } else {
-                // Favori olarak işaretlenmedi
-                favoriteButton.setTitle("♡", for: .normal)
-            }
+    func toggleFavorite() {
+        var favorites = UserDefaults.standard.array(forKey: "favorites") as? [String] ?? []
+        if favorites.contains(viewModel.newsTitle) {
+            favorites.removeAll(where: { $0 == viewModel.newsTitle })
+        } else {
+            favorites.append(viewModel.newsTitle)
         }
-        
-        // Favori durumunu değiştir
-        func toggleFavorite() {
-            let isFavorite = UserDefaults.standard.bool(forKey: viewModel.newsTitle)
-            
-            UserDefaults.standard.set(!isFavorite, forKey: viewModel.newsTitle)
-            checkIfFavorite()
-        }}
+        UserDefaults.standard.set(favorites, forKey: "favorites")
+        checkIfFavorite()
+    }
+    
+    func checkIfFavorite() {
+        let isFavorite = UserDefaults.standard.bool(forKey: viewModel.newsTitle)
+        if isFavorite == false {
+            favoriteButton.setImage((UIImage(systemName: "heart")), for: .normal)
+        } else {
+
+            favoriteButton.setImage((UIImage(systemName: "heart.fill")), for: .normal)
+        }
+    }
+
+}

@@ -24,6 +24,7 @@ class HomeVC: UIViewController, UISearchBarDelegate{
         configView()
         bindViewModel()
        // createSearchBar()
+        self.navigationController?.navigationBar.topItem?.hidesBackButton = true
     }
     
     override func viewDidAppear(_ animated: Bool) {

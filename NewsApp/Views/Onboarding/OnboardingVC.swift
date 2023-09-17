@@ -29,6 +29,7 @@ class OnboardingVC: UIViewController {
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
+        self.navigationItem.setHidesBackButton(true, animated: true)
         
         slides = [
             OnboardingSlide(title: "WELCOME", description: "You can follow the latest news.",image: UIImage(named: "TheNews")!),

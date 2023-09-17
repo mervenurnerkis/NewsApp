@@ -15,7 +15,7 @@ class CreateAccountViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationItem.setHidesBackButton(true, animated: true)
     }
     
 
@@ -34,5 +34,9 @@ class CreateAccountViewController: UIViewController {
         }
     }
     
-
+    @IBAction func signInAgaınClicked(_ sender: Any) {
+        
+    }
+    
+    
 }

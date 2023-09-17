@@ -55,4 +55,6 @@ class HomeViewModel {
         
         return movie
     }
+    
+    
 }
