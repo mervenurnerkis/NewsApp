@@ -38,7 +38,7 @@ public class APICaller {
 
     }
     
-    static func fetchCategoryData(completionHandler: @escaping (_ result: Result<News, NetworkError>) -> Void ) {
+    static func fetchCategoryData(categories: String,completionHandler: @escaping (_ result: Result<News, NetworkError>) -> Void ) {
         
         if NetworkConstant.shared.apiKey.isEmpty {
             print("<!> API KEY is Missing <!>")

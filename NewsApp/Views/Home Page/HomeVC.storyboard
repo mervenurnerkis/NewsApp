@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Homepage-->
+        <!--HomeVC-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController restorationIdentifier="TabbarVC" storyboardIdentifier="HomeVC" id="Y6W-OH-hqX" customClass="HomeVC" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -40,7 +40,7 @@
                                 </connections>
                             </button>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="X4m-nr-QtZ">
-                                <rect key="frame" x="0.0" y="125" width="393" height="51"/>
+                                <rect key="frame" x="0.0" y="169" width="393" height="7"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="barTintColor" systemColor="systemGray5Color"/>
@@ -54,7 +54,7 @@
                                 </connections>
                             </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NEWS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pLH-tR-Gs9">
-                                <rect key="frame" x="149" y="69" width="95" height="36"/>
+                                <rect key="frame" x="149" y="113" width="95" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="95" id="7IJ-pi-bHF"/>
                                 </constraints>
@@ -63,16 +63,18 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cfa-hA-SNh">
-                                <rect key="frame" x="0.0" y="113" width="280" height="739"/>
+                                <rect key="frame" x="0.0" y="0.0" width="280" height="755"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K0U-JP-js6">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="720"/>
+                                        <color key="backgroundColor" name="darkBlue"/>
+                                        <color key="tintColor" name="darkBlue"/>
                                         <connections>
                                             <segue destination="1RO-dH-9mA" kind="embed" id="tce-UZ-R72"/>
                                         </connections>
                                     </containerView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="darkBlue"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="K0U-JP-js6" secondAttribute="trailing" id="7rF-D4-hJ9"/>
                                     <constraint firstItem="K0U-JP-js6" firstAttribute="leading" secondItem="Cfa-hA-SNh" secondAttribute="leading" id="fdE-fo-zuV"/>
@@ -81,7 +83,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sRf-1Q-vz6">
-                                <rect key="frame" x="10" y="68" width="52" height="38"/>
+                                <rect key="frame" x="10" y="112" width="52" height="38"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="line.3.horizontal" catalog="system">
@@ -126,8 +128,8 @@
                             <constraint firstItem="pLH-tR-Gs9" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="zgb-VQ-7VB"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Homepage" image="newspaper" catalog="system" id="gGv-Fk-t3O"/>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="RdP-BS-I5v"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="activityIndıcator" destination="zqH-ur-g2a" id="6gi-ZY-bnF"/>
@@ -138,7 +140,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2011.4503816793892" y="2023.943661971831"/>
+            <point key="canvasLocation" x="-759.5419847328244" y="1729.5774647887324"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="I9n-kM-nAi">
@@ -150,7 +152,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="K0g-xb-yk9">
                                 <rect key="frame" x="0.0" y="59" width="393" height="710"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FavoriteCell" rowHeight="120" id="Awy-6x-UOV" customClass="FavoriteCell" customModule="NewsApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="120"/>
@@ -179,6 +181,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" systemColor="systemGray5Color"/>
                                             <constraints>
                                                 <constraint firstItem="7N2-6Z-hgd" firstAttribute="leading" secondItem="xXw-FU-Vgc" secondAttribute="trailing" constant="5" id="6Mf-w1-Sp4"/>
                                                 <constraint firstItem="FL2-d8-QGv" firstAttribute="leading" secondItem="xXw-FU-Vgc" secondAttribute="trailing" constant="5" id="Fvj-Xi-P84"/>
@@ -191,6 +194,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="FL2-d8-QGv" secondAttribute="trailing" constant="10" id="nhu-q6-nnT"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemGray5Color"/>
                                         <connections>
                                             <outlet property="descriptionLabel" destination="7N2-6Z-hgd" id="2j5-SS-fxf"/>
                                             <outlet property="favoriteImage" destination="xXw-FU-Vgc" id="e0c-F1-uMU"/>
@@ -201,7 +205,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Zyx-sQ-RIs"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <constraints>
                             <constraint firstItem="K0g-xb-yk9" firstAttribute="leading" secondItem="Zyx-sQ-RIs" secondAttribute="leading" id="dN8-So-d3I"/>
                             <constraint firstItem="Zyx-sQ-RIs" firstAttribute="bottom" secondItem="K0g-xb-yk9" secondAttribute="bottom" id="i83-pm-chv"/>
@@ -216,7 +220,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IFl-Vm-QGF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1016.030534351145" y="2030.9859154929579"/>
+            <point key="canvasLocation" x="-58.778625954198468" y="1760.5633802816903"/>
         </scene>
         <!--Profil-->
         <scene sceneID="UgK-fD-2K0">
@@ -266,7 +270,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ssQ-1i-xyT"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <constraints>
                             <constraint firstItem="Jyp-hl-AAU" firstAttribute="top" secondItem="Z0Z-gj-fEY" secondAttribute="bottom" constant="50" id="J06-dx-ee6"/>
                             <constraint firstItem="ssQ-1i-xyT" firstAttribute="bottom" secondItem="Z0Z-gj-fEY" secondAttribute="bottom" constant="520" id="VX5-GJ-ic4"/>
@@ -285,7 +289,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L94-KE-SaH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-251" y="2031"/>
+            <point key="canvasLocation" x="675.57251908396938" y="1833.8028169014085"/>
         </scene>
         <!--TabbarVC-->
         <scene sceneID="4az-57-m6T">
@@ -295,11 +299,12 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uRX-ec-7vr">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" systemColor="separatorColor"/>
-                        <color key="selectedImageTintColor" name="darkBlue"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" systemColor="labelColor"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="viewControllers" destinationCreationSelector="tabbarVC" id="Nhp-DS-AuR"/>
+                        <segue destination="tqz-ir-Rm5" kind="relationship" relationship="viewControllers" id="Nhp-DS-AuR"/>
                         <segue destination="tfO-oB-TpA" kind="relationship" relationship="viewControllers" id="Wzo-zN-XCh"/>
                         <segue destination="Y7T-zW-lk7" kind="relationship" relationship="viewControllers" id="Mok-Me-cZT"/>
                     </connections>
@@ -311,7 +316,7 @@
         <!--SideVC-->
         <scene sceneID="1Dg-QD-ZNj">
             <objects>
-                <viewController id="1RO-dH-9mA" customClass="SideVC" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="TabbarVC" storyboardIdentifier="SideVC" id="1RO-dH-9mA" customClass="SideVC" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kin-Yk-DaJ">
                         <rect key="frame" x="0.0" y="0.0" width="280" height="720"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -390,29 +395,53 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ztq-2s-XpE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2574.0458015267172" y="1866.9014084507044"/>
+            <point key="canvasLocation" x="-2350" y="1682"/>
+        </scene>
+        <!--Homepage-->
+        <scene sceneID="jUb-jk-bca">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tqz-ir-Rm5" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Homepage" image="newspaper" catalog="system" id="gGv-Fk-t3O">
+                        <color key="badgeColor" systemColor="systemGreenColor"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" id="CmW-lF-O96">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="xBO-K2-dVb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="87f-2N-qje" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1686.2595419847328" y="1729.5774647887324"/>
         </scene>
     </scenes>
-    <color key="tintColor" name="darkBlue"/>
+    <color key="tintColor" systemColor="labelColor"/>
     <resources>
         <image name="TestImageLarge.png" width="1275" height="720"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="line.3.horizontal" catalog="system" width="128" height="65"/>
-        <image name="newspaper" catalog="system" width="128" height="111"/>
         <image name="newspaper" width="512" height="512"/>
+        <image name="newspaper" catalog="system" width="128" height="111"/>
         <image name="person" catalog="system" width="128" height="121"/>
         <image name="profile" width="256" height="256"/>
         <namedColor name="darkBlue">
             <color red="0.17647058823529413" green="0.17647058823529413" blue="0.27450980392156865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="separatorColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGroupedBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

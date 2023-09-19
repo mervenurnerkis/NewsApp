@@ -42,13 +42,13 @@ class HomeViewModel {
         }
     }
     
-    func getCategoriesData() {
+    func getCategoriesData(categories: String) {
         if isLoading.value ?? true {
             return
         }
         
         isLoading.value = true
-        APICaller.fetchCategoryData { [weak self] result in
+        APICaller.fetchCategoryData(categories: categories) { [weak self] result in
             self?.isLoading.value = false
             
             switch result {
@@ -59,7 +59,7 @@ class HomeViewModel {
                 print(err)
             }
         }
-    } 
+    }
     
     func mapMovieData() {
         news.value = self.dataSource?.articles.compactMap({NewTableCellViewModel(news: $0)})
@@ -76,10 +76,4 @@ class HomeViewModel {
         
         return movie
     }
-    
-
-    // HomeVC'de
-
-
-    
 }

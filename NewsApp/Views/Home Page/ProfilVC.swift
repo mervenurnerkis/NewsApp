@@ -1,4 +1,3 @@
-//
 //  ProfilVC.swift
 //  NewsApp
 //
@@ -17,33 +16,23 @@ class ProfilVC: UIViewController {
         if #available(iOS 13.0, *) {
             let darkMode = UserDefaults.standard.bool(forKey: "darkMode")
             switchTheme.isOn = darkMode
+            updateTheme(isDarkMode: darkMode)
         }
         
     }
     
     @IBAction func switchThemeValueChanged(_ sender: UISwitch) {
-        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-           let appDelegate = windowScene.windows.first {
-            UserDefaults.standard.set(sender.isOn, forKey: "darkMode")
-            if sender.isOn {
-                appDelegate.overrideUserInterfaceStyle = .dark
-            } else {
-                appDelegate.overrideUserInterfaceStyle = .light
-            }
-            
-            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-               let appDelegate = windowScene.windows.first {
-                UserDefaults.standard.set(sender.isOn, forKey: "darkMode")
-                if sender.isOn {
-                    appDelegate.overrideUserInterfaceStyle = .dark
-                } else {
-                    appDelegate.overrideUserInterfaceStyle = .light
-                }
-            }
+        if #available(iOS 13.0, *) {
+            updateTheme(isDarkMode: sender.isOn)
         }
     }
-    
-    
 
-
+    func updateTheme(isDarkMode: Bool) {
+        UserDefaults.standard.set(isDarkMode, forKey: "darkMode")
+        
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let appDelegate = windowScene.windows.first {
+            appDelegate.overrideUserInterfaceStyle = isDarkMode ? .dark : .light
+        }
+    }
 }

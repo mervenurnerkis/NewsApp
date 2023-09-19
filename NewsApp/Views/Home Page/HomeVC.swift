@@ -24,6 +24,8 @@ class HomeVC: UIViewController, UISearchBarDelegate{
     
     var categories: String = "default"
     
+    var isMenuOpen: Bool = false
+    
     //    func getCategories(categories: String) -> String {
     //        "https://newsapi.org/v2/everything?q=\(self.categories)&apiKey=027c4dbd555e4ebfb1db490cdbbd9c3d"
     //    }
@@ -35,16 +37,18 @@ class HomeVC: UIViewController, UISearchBarDelegate{
         bindViewModel()
         // createSearchBar()
         self.navigationController?.navigationBar.topItem?.hidesBackButton = true
-        backViewSide.isHidden = false
+        backViewSide.isHidden = true
+        isMenuOpen = false
+        self.navigationItem.setHidesBackButton(true, animated: true)
+        
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         homeViewModel.getData()
-        homeViewModel.getCategoriesData()
+        homeViewModel.getCategoriesData(categories: self.categories)
     }
-    
     
     
     
@@ -54,12 +58,26 @@ class HomeVC: UIViewController, UISearchBarDelegate{
     }
     
     @IBAction func showSideMenu(_ sender: Any) {
-        var isChecked = true
+        backViewSide.isHidden = false
+        tableView.isHidden = false
         
-        if isChecked {
+        if !isMenuOpen {
+            isMenuOpen = true
+            backViewSide.frame = CGRect(x: 0, y: 88, width: 0, height: 808)
+            tableView.frame = CGRect(x: 0, y: 88, width: 0, height: 808)
+            UIView.animate(withDuration: 0.5) {
+                self.backViewSide.frame = CGRect(x: 0, y: 88, width: 240, height: 808)
+            }
+            
+        }else {
             backViewSide.isHidden = true
-        } else {
-            backViewSide.isHidden = false
+            tableView.isHidden = true
+            isMenuOpen = false
+            backViewSide.frame = CGRect(x: 0, y: 88, width: 0, height: 808)
+            tableView.frame = CGRect(x: 0, y: 0, width: 0, height: 808)
+            UIView.animate(withDuration: 1) {
+                self.backViewSide.frame = CGRect(x: 0, y: 88, width: 240, height: 808)
+            }
         }
         
     }
@@ -142,4 +160,3 @@ class HomeVC: UIViewController, UISearchBarDelegate{
 //    }
     
 }
-

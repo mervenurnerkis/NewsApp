@@ -3,8 +3,8 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -21,41 +21,41 @@
                         <rect key="frame" x="16" y="8" width="363" height="184"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mko-jW-mKZ">
-                                <rect key="frame" x="139" y="-8" width="62" height="29"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="22" id="Rd2-F3-Y5U"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <color key="textColor" name="darkBlue"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mko-jW-mKZ">
+                                <rect key="frame" x="166" y="8" width="189" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jPW-P1-Sax">
-                                <rect key="frame" x="0.0" y="0.0" width="137" height="184"/>
+                                <rect key="frame" x="8" y="8" width="150" height="168"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="184" id="bBk-Jw-ehQ"/>
-                                    <constraint firstAttribute="width" constant="137" id="hEt-fy-lor"/>
+                                    <constraint firstAttribute="width" constant="150" id="uSK-93-o72"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" misplaced="YES" text="Descrpit" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CyC-q8-64a">
-                                <rect key="frame" x="139" y="29" width="61.666666666666686" height="39"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Descrpit" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CyC-q8-64a">
+                                <rect key="frame" x="166" y="40" width="189" height="136"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Crx-Tg-2Ef"/>
                         <constraints>
-                            <constraint firstItem="Crx-Tg-2Ef" firstAttribute="trailing" secondItem="Mko-jW-mKZ" secondAttribute="trailing" constant="8" id="1zQ-y4-4eb"/>
-                            <constraint firstAttribute="bottom" secondItem="jPW-P1-Sax" secondAttribute="bottom" id="5dF-fb-iH8"/>
-                            <constraint firstItem="Mko-jW-mKZ" firstAttribute="leading" secondItem="jPW-P1-Sax" secondAttribute="trailing" constant="2" id="MBS-yE-NeQ"/>
-                            <constraint firstItem="CyC-q8-64a" firstAttribute="top" secondItem="Mko-jW-mKZ" secondAttribute="bottom" constant="8" symbolic="YES" id="QmO-pm-VFa"/>
-                            <constraint firstItem="Crx-Tg-2Ef" firstAttribute="bottom" secondItem="CyC-q8-64a" secondAttribute="bottom" constant="109" id="fYB-FM-niU"/>
-                            <constraint firstItem="Mko-jW-mKZ" firstAttribute="top" secondItem="T8S-97-kbc" secondAttribute="top" constant="6" id="kgC-7z-DQA"/>
-                            <constraint firstItem="CyC-q8-64a" firstAttribute="leading" secondItem="jPW-P1-Sax" secondAttribute="trailing" constant="2" id="nRh-1L-oZJ"/>
-                            <constraint firstItem="Crx-Tg-2Ef" firstAttribute="bottom" secondItem="Mko-jW-mKZ" secondAttribute="bottom" constant="156" id="oQu-cd-utA"/>
-                            <constraint firstItem="jPW-P1-Sax" firstAttribute="leading" secondItem="T8S-97-kbc" secondAttribute="leading" id="uKo-Ok-HYk"/>
-                            <constraint firstItem="Crx-Tg-2Ef" firstAttribute="trailing" secondItem="CyC-q8-64a" secondAttribute="trailing" constant="8" id="xuI-XK-4Ci"/>
+                            <constraint firstItem="Crx-Tg-2Ef" firstAttribute="bottom" secondItem="jPW-P1-Sax" secondAttribute="bottom" constant="8" id="7a5-MB-fzB"/>
+                            <constraint firstItem="CyC-q8-64a" firstAttribute="leading" secondItem="jPW-P1-Sax" secondAttribute="trailing" constant="8" id="8Rh-Ng-QLS"/>
+                            <constraint firstItem="jPW-P1-Sax" firstAttribute="leading" secondItem="Crx-Tg-2Ef" secondAttribute="leading" constant="8" id="FJi-y7-o2O"/>
+                            <constraint firstItem="Crx-Tg-2Ef" firstAttribute="bottom" secondItem="CyC-q8-64a" secondAttribute="bottom" constant="8" id="OUj-Qs-lSr"/>
+                            <constraint firstItem="Crx-Tg-2Ef" firstAttribute="trailing" secondItem="Mko-jW-mKZ" secondAttribute="trailing" constant="8" id="RGI-sp-2dF"/>
+                            <constraint firstItem="CyC-q8-64a" firstAttribute="top" secondItem="Mko-jW-mKZ" secondAttribute="bottom" constant="8" id="WVA-GO-vxF"/>
+                            <constraint firstItem="Mko-jW-mKZ" firstAttribute="leading" secondItem="jPW-P1-Sax" secondAttribute="trailing" constant="8" id="dRQ-Gk-WIs"/>
+                            <constraint firstItem="jPW-P1-Sax" firstAttribute="top" secondItem="T8S-97-kbc" secondAttribute="top" constant="8" id="jIs-XH-KTc"/>
+                            <constraint firstItem="Mko-jW-mKZ" firstAttribute="top" secondItem="T8S-97-kbc" secondAttribute="top" constant="8" id="mAs-3C-rfH"/>
+                            <constraint firstItem="Crx-Tg-2Ef" firstAttribute="trailing" secondItem="CyC-q8-64a" secondAttribute="trailing" constant="8" id="wY9-Ke-jxt"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -77,8 +77,8 @@
         </tableViewCell>
     </objects>
     <resources>
-        <namedColor name="darkBlue">
-            <color red="0.17647058823529413" green="0.17647058823529413" blue="0.27450980392156865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

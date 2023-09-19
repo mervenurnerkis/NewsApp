@@ -1,4 +1,3 @@
-//
 //  SideVC.swift
 //  NewsApp
 //
@@ -35,12 +34,12 @@ extension SideVC: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let categories = NewsCategory.allCases[indexPath.row].categoryName
         let storyboard = UIStoryboard(name: "HomeVC", bundle: nil)
-        
         if let vc = storyboard.instantiateViewController(withIdentifier: "HomeVC") as? HomeVC {
-            vc.categories = categories
-            
+            vc.homeViewModel.getCategoriesData(categories: categories)
             self.navigationController?.pushViewController(vc, animated: false)
         }
     }
+
+
     
 }
