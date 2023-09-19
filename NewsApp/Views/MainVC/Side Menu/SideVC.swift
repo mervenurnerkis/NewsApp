@@ -21,7 +21,7 @@ class SideVC: UIViewController {
 }
 extension SideVC: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return NewsCategory.allCases.count
+        return NewsCategory.allCases.count - 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -32,10 +32,10 @@ extension SideVC: UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let categories = NewsCategory.allCases[indexPath.row].categoryName
+        let category = NewsCategory.allCases[indexPath.row].rawValue
         let storyboard = UIStoryboard(name: "HomeVC", bundle: nil)
         if let vc = storyboard.instantiateViewController(withIdentifier: "HomeVC") as? HomeVC {
-            vc.homeViewModel.getCategoriesData(categories: categories)
+            vc.homeViewModel.getCategoriesData(categories: category)
             self.navigationController?.pushViewController(vc, animated: false)
         }
     }

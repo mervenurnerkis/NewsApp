@@ -25,8 +25,16 @@ class LoginVC: UIViewController {
         guard let password = passwordTextField.text else { return }
         
         Auth.auth().signIn(withEmail: email, password: password) { firebaseResult, error in
-            if let a = error {
-                print("error")
+            if let error = error {
+                print("error: \(error.localizedDescription)")
+                let alertController = UIAlertController(title: "Giriş Başarısız", message: error.localizedDescription, preferredStyle: .alert)
+                 
+                 let actionOk = UIAlertAction(title: "Tamam",
+                                              style: .default,
+                                              handler: nil)
+                 
+                 alertController.addAction(actionOk)
+                 self.present(alertController, animated: true, completion: nil)
             }
             else {
                 UserDefaults.standard.set(true, forKey: "ISLOGGEDIN")

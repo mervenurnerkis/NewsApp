@@ -26,7 +26,13 @@ class ProfilVC: UIViewController {
             updateTheme(isDarkMode: sender.isOn)
         }
     }
-
+    
+    
+    @IBAction func logOutClicked(_ sender: Any) {
+        UserDefaults.standard.set(false, forKey: "ISLOGGEDIN")
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
     func updateTheme(isDarkMode: Bool) {
         UserDefaults.standard.set(isDarkMode, forKey: "darkMode")
         

@@ -24,7 +24,7 @@ class CreateAccountViewController: UIViewController {
         guard let password = passwordTextField.text else { return }
         
         Auth.auth().createUser(withEmail: email, password: password) { firebaseResult, error in
-            if let a = error {
+            if error != nil {
                 print("error")
             }
             else {

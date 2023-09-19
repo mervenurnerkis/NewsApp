@@ -1,4 +1,5 @@
 import Foundation
+import Combine
 
 enum NetworkError: Error {
     case urlError
@@ -7,14 +8,11 @@ enum NetworkError: Error {
 
 public class APICaller {
 
+    static let shared = APICaller()
     
-    static func fetchData(completionHandler: @escaping (_ result: Result<News, NetworkError>) -> Void ) {
+ /*   static func fetchData(completionHandler: @escaping (_ result: Result<News, NetworkError>) -> Void ) {
         
-        if NetworkConstant.shared.apiKey.isEmpty {
-            print("<!> API KEY is Missing <!>")
-            print("<!> Get One from: https://www.themoviedb.org/ <!>")
-            return
-        }
+        
         
         let urlString = NetworkConstant.shared.serverAdress +
                 "v2/top-headlines?country=us&apiKey=" +
@@ -36,15 +34,26 @@ public class APICaller {
             }
         }.resume()
 
+    } */
+    
+    static func fetchData() -> AnyPublisher<News, Error> {
+        let apiKey = NetworkConstant.shared.apiKey
+
+        var urlComponents = URLComponents(string: NetworkConstant.shared.serverAdress + "v2/top-headlines")!
+        urlComponents.queryItems = [
+            URLQueryItem(name: "country", value: "us"),
+            URLQueryItem(name: "apiKey", value: apiKey)
+        ]
+       
+        return URLSession.shared.dataTaskPublisher(for: urlComponents.url!)
+            .map(\.data)
+            .decode(type: News.self, decoder: JSONDecoder())
+            .eraseToAnyPublisher()
     }
     
     static func fetchCategoryData(categories: String,completionHandler: @escaping (_ result: Result<News, NetworkError>) -> Void ) {
         
-        if NetworkConstant.shared.apiKey.isEmpty {
-            print("<!> API KEY is Missing <!>")
-            print("<!> Get One from: https://www.themoviedb.org/ <!>")
-            return
-        }
+        
         var categories: String = "default"
         
         let urlString = NetworkConstant.shared.serverAdress +

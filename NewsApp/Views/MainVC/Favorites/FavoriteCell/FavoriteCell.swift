@@ -17,11 +17,10 @@ class FavoriteCell: UITableViewCell {
         titleLabel.text = article.title
         descriptionLabel.text = article.description ?? ""
         
-        // SDWebImage kütüphanesini kullanarak resmi yükleyin
         if let imageUrl = URL(string: article.urlToImage ?? "") {
             favoriteImage.sd_setImage(with: imageUrl, completed: nil)
         } else {
-            favoriteImage.image = nil // Veya varsayılan bir resim ayarlayabilirsiniz
+            favoriteImage.image = nil
         }
     }
 }

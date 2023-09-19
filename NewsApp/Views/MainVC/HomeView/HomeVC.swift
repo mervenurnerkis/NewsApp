@@ -52,10 +52,11 @@ class HomeVC: UIViewController, UISearchBarDelegate{
     
     
     
-    @IBAction func logOutClicked(_ sender: Any) {
-        UserDefaults.standard.set(false, forKey: "ISLOGGEDIN")
-        self.navigationController?.popToRootViewController(animated: true)
-    }
+//    @IBAction func logOutClicked(_ sender: Any) {
+//        UserDefaults.standard.set(false, forKey: "ISLOGGEDIN")
+//        self.navigationController?.popToRootViewController(animated: true)
+//        print("tıklandı")
+//    }
     
     @IBAction func showSideMenu(_ sender: Any) {
         backViewSide.isHidden = false
@@ -114,7 +115,7 @@ class HomeVC: UIViewController, UISearchBarDelegate{
     }
     
     func openDetail(newId: String) {
-        guard let news = homeViewModel.retriveMovie(withId: newId) else {
+        guard let news = homeViewModel.retriveNews(withId: newId) else {
             return
         }
         

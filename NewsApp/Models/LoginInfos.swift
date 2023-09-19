@@ -1,9 +1,9 @@
-//
+
 //  LoginInfos.swift
 //  NewsApp
-//
-//  Created by Merve Nur Nerkis on 7.09.2023.
-//
+
+ // Created by Merve Nur Nerkis on 7.09.2023.
+
 
 import UIKit
 

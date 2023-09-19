@@ -25,7 +25,7 @@ class DetailsNewVC: UIViewController {
         configView()
         checkIfFavorite()
         
-      //  favoriteButton.addTarget(self, action: #selector(favoriteButtonTapped(_:)), for: .touchUpInside)
+
         self.navigationController?.navigationBar.tintColor = UIColor.darkGray
     }
     
