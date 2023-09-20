@@ -6,7 +6,8 @@ class DetailsNewVC: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var newsTitle: UILabel!
     @IBOutlet weak var newsDescription: UILabel!
-    @IBOutlet weak var favoriteButton: UIButton!  // Favori butonu
+    @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet weak var favoriButtonBack: UIView!
     
     var viewModel: DetailsNewsViewModel
     
@@ -24,8 +25,6 @@ class DetailsNewVC: UIViewController {
         
         configView()
         checkIfFavorite()
-        
-
         self.navigationController?.navigationBar.tintColor = UIColor.darkGray
     }
     
@@ -41,6 +40,7 @@ class DetailsNewVC: UIViewController {
             if let encoded = try? JSONEncoder().encode(viewModel.newData) {
                 UserDefaults.standard.set(encoded, forKey: "favorite_\(viewModel.newsTitle)")
             }
+
         } else {
             UserDefaults.standard.removeObject(forKey: "favorite_\(viewModel.newsTitle)")
         }

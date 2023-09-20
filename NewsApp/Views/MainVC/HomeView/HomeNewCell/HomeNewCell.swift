@@ -38,7 +38,7 @@ class HomeNewCell: UITableViewCell {
       //  newImageView.layer.cornerRadius = 5
     }
     
-    func setupCell(homeViewModel: NewTableCellViewModel) {
+    func setupCell(homeViewModel: NewTableCellModel) {
         self.newTitle.text = homeViewModel.title
         self.newDescription.text = homeViewModel.description
         self.newImageView.sd_setImage(with: homeViewModel.imageUrl, completed: nil)  // SDWebImage kütüphanesi burada kullanılıyor

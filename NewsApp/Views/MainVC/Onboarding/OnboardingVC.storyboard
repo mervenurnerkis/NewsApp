@@ -86,7 +86,7 @@
                                 </cells>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fq5-EH-H6Q">
-                                <rect key="frame" x="100" y="760" width="193" height="50"/>
+                                <rect key="frame" x="40" y="760" width="313" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="XOK-kT-895"/>
@@ -116,7 +116,7 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="darkBlue"/>
                         <constraints>
-                            <constraint firstItem="fq5-EH-H6Q" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="100" id="Asi-5q-IhM"/>
+                            <constraint firstItem="fq5-EH-H6Q" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="Asi-5q-IhM"/>
                             <constraint firstItem="FVU-UC-3Qc" firstAttribute="centerX" secondItem="z2d-yM-grJ" secondAttribute="centerX" id="BdP-KP-O6u"/>
                             <constraint firstItem="z2d-yM-grJ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="LSV-2W-5yH"/>
                             <constraint firstItem="z2d-yM-grJ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="RGV-bH-7yR"/>
@@ -129,7 +129,7 @@
                             <constraint firstItem="FVU-UC-3Qc" firstAttribute="centerX" secondItem="fq5-EH-H6Q" secondAttribute="centerX" id="kzv-jg-OkF"/>
                             <constraint firstItem="z2d-yM-grJ" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="mC5-y7-dHO"/>
                             <constraint firstAttribute="bottom" secondItem="FVU-UC-3Qc" secondAttribute="bottom" constant="132" id="oTw-7I-l24"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="fq5-EH-H6Q" secondAttribute="trailing" constant="100" id="ruR-sc-HoZ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="fq5-EH-H6Q" secondAttribute="trailing" constant="40" id="ruR-sc-HoZ"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="fq5-EH-H6Q" secondAttribute="bottom" constant="8" id="wFa-V5-s4l"/>
                         </constraints>
                     </view>

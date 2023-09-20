@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class FavoriteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -63,6 +64,7 @@ class FavoriteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
                 tableView.deleteRows(at: [indexPath], with: .automatic)
             }
+       
         }
     }
 

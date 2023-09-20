@@ -35,7 +35,7 @@ extension SideVC: UITableViewDelegate,UITableViewDataSource {
         let category = NewsCategory.allCases[indexPath.row].rawValue
         let storyboard = UIStoryboard(name: "HomeVC", bundle: nil)
         if let vc = storyboard.instantiateViewController(withIdentifier: "HomeVC") as? HomeVC {
-            vc.homeViewModel.getCategoriesData(categories: category)
+            vc.homeViewModel.getCategoryData(category: category)
             self.navigationController?.pushViewController(vc, animated: false)
         }
     }

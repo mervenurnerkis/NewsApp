@@ -32,29 +32,23 @@ class OnboardingVC: UIViewController {
         self.navigationItem.setHidesBackButton(true, animated: true)
         
         slides = [
-            OnboardingSlide(title: "WELCOME", description: "You can follow the latest news.",image: UIImage(named: "TheNews")!),
-            OnboardingSlide(title: "FOLLOW THE AGENDA", description: "lYou can keep abreast of the world's agenda and access news according to your interests." , image: UIImage(named: "TheNews")!),
-            OnboardingSlide(title: "SAVE ARTICLES FOR LATER", description: "Tap the bookmark to read what you want,when you want." , image: UIImage(named: "TheNews")!)
+            OnboardingSlide(title: Constants.welcome, description: Constants.welcomeDescription,image: UIImage(named: Constants.theNews)!),
+            OnboardingSlide(title: Constants.follow, description: Constants.followDescription,image: UIImage(named: Constants.theNews)!),
+            OnboardingSlide(title: Constants.save, description: Constants.saveDescription,image: UIImage(named: Constants.theNews)!)
+
         ]
-        if UserDefaults.standard.bool(forKey: "ISLOGGEDIN") == true {
-            let storyboard = UIStoryboard(name: "HomeVC", bundle: nil)
-            let webVC = storyboard.instantiateViewController(withIdentifier: "TabbarVC") 
-            self.navigationController?.pushViewController(webVC, animated: false)
-            
-           /* UserDefaults.standard.set(true, forKey: "ISLOGGEDIN")
-            let main = UIStoryboard(name: "HomeVC", bundle: nil)
-            let home = main.instantiateViewController(withIdentifier: "TabbarVC")
-            self.present(home, animated: true, completion: nil) */
-        }
+//        if UserDefaults.standard.bool(forKey: "isloggedin") == true {
+//            let storyboard = UIStoryboard(name: "HomeVC", bundle: nil)
+//            let webVC = storyboard.instantiateViewController(withIdentifier: "TabbarVC")
+//            self.navigationController?.pushViewController(webVC, animated: false)
+//        }
     }
     
     @IBAction func nextButtonTapped(_ sender: UIButton) {
+        
         if currentPage == slides.count - 1 {
-          /*  let controller = storyboard?.instantiateViewController(withIdentifier: "HomeVC") as! UINavigationController
-            controller.modalPresentationStyle = .fullScreen
-            controller.modalTransitionStyle = .flipHorizontal
+            UserDefaults.standard.set(true, forKey: "isloggedin")
             
-            present(controller, animated: true, completion: nil)*/
             let storyboard = UIStoryboard(name: "LoginVC", bundle: nil)
             if let webVC = storyboard.instantiateViewController(withIdentifier: "LoginVC") as? LoginVC {
                 self.navigationController?.pushViewController(webVC, animated: true)
@@ -88,7 +82,7 @@ extension OnboardingVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let width = scrollView.frame.width
-        let currentPage = Int(scrollView.contentOffset.x / width)
+        _ = Int(scrollView.contentOffset.x / width)
 
     }
 }

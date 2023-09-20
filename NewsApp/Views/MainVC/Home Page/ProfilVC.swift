@@ -29,8 +29,14 @@ class ProfilVC: UIViewController {
     
     
     @IBAction func logOutClicked(_ sender: Any) {
-        UserDefaults.standard.set(false, forKey: "ISLOGGEDIN")
-        self.navigationController?.popToRootViewController(animated: true)
+        UserDefaults.standard.set(false, forKey: "isloggedin")
+        
+        let storyboard = UIStoryboard(name: "OnboardingVC", bundle: nil)
+        if let onboardingVC = storyboard.instantiateViewController(withIdentifier: "OnboardingVC") as? OnboardingVC {
+            let navigationController = UINavigationController(rootViewController: onboardingVC)
+            navigationController.modalPresentationStyle = .fullScreen
+            self.present(navigationController, animated: true, completion: nil)
+        }
     }
     
     func updateTheme(isDarkMode: Bool) {

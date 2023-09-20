@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -13,20 +14,35 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        
+            
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
-        let storyboard = UIStoryboard(name: "OnboardingVC", bundle: nil)
         
-        guard let mainVC = storyboard.instantiateViewController(withIdentifier: "OnboardingVC") as? OnboardingVC else {
-            return
+        if UserDefaults.standard.bool(forKey: "isloggedin") == true {
+            if FirebaseAuth.Auth.auth().currentUser != nil {
+                let storyboard = UIStoryboard(name: "HomeVC", bundle: nil)
+                if let homeVC = storyboard.instantiateViewController(withIdentifier: "TabbarVC") as? UITabBarController {
+                    window.rootViewController = UINavigationController(rootViewController: homeVC)
+                }
+            } else {
+                let storyboard = UIStoryboard(name: "LoginVC", bundle: nil)
+                if let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginVC") as? LoginVC {
+                    window.rootViewController = UINavigationController(rootViewController: loginVC)
+                }
+            }
+            
+        } else {
+            let storyboard = UIStoryboard(name: "OnboardingVC", bundle: nil)
+            if let onboardingVC = storyboard.instantiateViewController(withIdentifier: "OnboardingVC") as? OnboardingVC {
+                window.rootViewController = UINavigationController(rootViewController: onboardingVC)
+            }
         }
-        window.rootViewController = UINavigationController(rootViewController: mainVC)
+
         window.makeKeyAndVisible()
         self.window = window
-        
     }
+
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
