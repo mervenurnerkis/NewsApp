@@ -19,5 +19,7 @@ Technologies I Use:
 
 API Adress: https://newsapi.org/
 
-https://github.com/mervenurnerkis/NewsApp/assets/63150968/8563249f-ca92-4a4e-a4fa-ad846bd01ec1
+The News App Demo:
+
+https://github.com/mervenurnerkis/NewsApp/assets/63150968/327fb0a8-508a-423c-83ad-aef36bf7be8e
 
