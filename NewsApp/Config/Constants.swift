@@ -15,4 +15,8 @@ struct Constants {
     static let followDescription = "You can keep abreast of the world's agenda and access news according to your interests."
     static let save = "SAVE ARTICLES FOR LATER"
     static let saveDescription = "Tap the bookmark to read what you want,when you want."
+    static let isUserLoggedIn = "isloggedin"
+    static let emptyCredentialsError = "Email and Password must not be empty."
+    static let loginFailedTitle = "Login Failed"
+    static let loginFailedOkButton = "Okey"
 }

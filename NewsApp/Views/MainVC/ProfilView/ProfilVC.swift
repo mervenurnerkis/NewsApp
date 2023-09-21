@@ -9,6 +9,7 @@ import UIKit
 class ProfilVC: UIViewController {
 
     @IBOutlet weak var switchTheme: UISwitch!
+    @IBOutlet weak var usernameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +19,6 @@ class ProfilVC: UIViewController {
             switchTheme.isOn = darkMode
             updateTheme(isDarkMode: darkMode)
         }
-        
     }
     
     @IBAction func switchThemeValueChanged(_ sender: UISwitch) {

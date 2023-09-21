@@ -37,11 +37,6 @@ class OnboardingVC: UIViewController {
             OnboardingSlide(title: Constants.save, description: Constants.saveDescription,image: UIImage(named: Constants.theNews)!)
 
         ]
-//        if UserDefaults.standard.bool(forKey: "isloggedin") == true {
-//            let storyboard = UIStoryboard(name: "HomeVC", bundle: nil)
-//            let webVC = storyboard.instantiateViewController(withIdentifier: "TabbarVC")
-//            self.navigationController?.pushViewController(webVC, animated: false)
-//        }
     }
     
     @IBAction func nextButtonTapped(_ sender: UIButton) {

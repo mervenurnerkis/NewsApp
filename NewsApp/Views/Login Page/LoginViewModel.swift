@@ -3,15 +3,11 @@ import Firebase
 
 class LoginViewModel {
     
-    struct userLoginKeys {
-        static let userLogin = "isLogin"
-    }
-    
     let defaults = UserDefaults.standard
 
     func loginUser(email: String?, password: String?, completion: @escaping (Bool, String?) -> Void) {
         guard let email = email, let password = password else {
-            completion(false, "Email and Password must not be empty.")
+            completion(false, Constants.emptyCredentialsError)
             return
         }
         
@@ -21,19 +17,19 @@ class LoginViewModel {
             }
             else {
                 self.saveLogging(true)
-                UserDefaults.standard.set(true, forKey: "isloggedin")
+                UserDefaults.standard.set(true, forKey: Constants.isUserLoggedIn)
                 completion(true, nil)
             }
         }
     }
 
-    
-    func saveLogging(_ isLogin:Bool) {
-        defaults.set(isLogin, forKey: userLoginKeys.userLogin)
+    func saveLogging(_ isLogin: Bool) {
+        defaults.set(isLogin, forKey: Constants.isUserLoggedIn)
         defaults.synchronize()
     }
     
     func isLoggedIn() -> Bool {
-        return defaults.bool(forKey: userLoginKeys.userLogin)
+        return defaults.bool(forKey: Constants.isUserLoggedIn)
     }
 }
+

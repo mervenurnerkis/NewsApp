@@ -11,12 +11,11 @@ public class APICaller {
     static let shared = APICaller()
     
     static func fetchData() -> AnyPublisher<News, Error> {
-        let apiKey = NetworkConstant.shared.apiKey
-
-        var urlComponents = URLComponents(string: NetworkConstant.shared.serverAdress + "v2/top-headlines")!
+        
+        var urlComponents = URLComponents(string: Address.topHeadLines.rawValue)!
         urlComponents.queryItems = [
             URLQueryItem(name: "country", value: "us"),
-            URLQueryItem(name: "apiKey", value: apiKey)
+            URLQueryItem(name: "apiKey", value: NetworkConstant.apiKey)
         ]
        
         return URLSession.shared.dataTaskPublisher(for: urlComponents.url!)
@@ -27,13 +26,10 @@ public class APICaller {
     
     static func fetchCategoryData(category: String) -> AnyPublisher<News, Error> {
         
-        let urlString = NetworkConstant.shared.serverAdress +
-            "v2/everything"
-        
-        var urlComponents = URLComponents(string: urlString)!
+        var urlComponents = URLComponents(string: Address.everything.rawValue)!
         urlComponents.queryItems = [
             URLQueryItem(name: "q", value: category),
-            URLQueryItem(name: "apiKey", value: NetworkConstant.shared.apiKey)
+            URLQueryItem(name: "apiKey", value: NetworkConstant.apiKey)
         ]
         
         return URLSession.shared.dataTaskPublisher(for: urlComponents.url!)

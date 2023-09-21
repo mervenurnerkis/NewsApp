@@ -18,18 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         return true
     }
-    
-    /*func check() {
-        if UserDefaults.standard.value(forKey: "username") != nil {
-            let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "HomeVC")
-            
-            let navVC = UINavigationController(rootViewController: vc)
-            let share = UIApplication.shared.delegate as? AppDelegate
-            share?.window?.rootViewController = navVC
-            share?.window?.makeKeyAndVisible()
-            
-        }
-    }*/
 
     // MARK: UISceneSession Lifecycle
 

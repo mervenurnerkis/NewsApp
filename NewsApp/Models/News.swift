@@ -8,7 +8,9 @@
 import Foundation
 
 struct News: Codable {
-    let articles: [Article]
+    let articles: [Article]?
+    let message: String?
+    let code: String?
 }
 
 // MARK: - Article

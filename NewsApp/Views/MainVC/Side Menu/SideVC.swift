@@ -14,11 +14,9 @@ class SideVC: UIViewController {
         super.viewDidLoad()
         self.categoryTableView.delegate = self
         self.categoryTableView.dataSource = self
-
- 
     }
-
 }
+
 extension SideVC: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return NewsCategory.allCases.count - 1
@@ -39,7 +37,4 @@ extension SideVC: UITableViewDelegate,UITableViewDataSource {
             self.navigationController?.pushViewController(vc, animated: false)
         }
     }
-
-
-    
 }

@@ -22,25 +22,26 @@ class DetailsNewVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configView()
         checkIfFavorite()
         self.navigationController?.navigationBar.tintColor = UIColor.darkGray
     }
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        checkIfFavorite()
+    }
+
     @IBAction func favoriButtonTapped(_ sender: UIButton) {
         print("Favori butonuna tıklandı")
         let isFavorite = UserDefaults.standard.bool(forKey: viewModel.newsTitle)
         UserDefaults.standard.set(!isFavorite, forKey: viewModel.newsTitle)
         checkIfFavorite()
         
-        
         if !isFavorite {
             if let encoded = try? JSONEncoder().encode(viewModel.newData) {
                 UserDefaults.standard.set(encoded, forKey: "favorite_\(viewModel.newsTitle)")
             }
-
         } else {
             UserDefaults.standard.removeObject(forKey: "favorite_\(viewModel.newsTitle)")
         }
@@ -70,7 +71,6 @@ class DetailsNewVC: UIViewController {
         if isFavorite == false {
             favoriteButton.setImage((UIImage(systemName: "heart")), for: .normal)
         } else {
-
             favoriteButton.setImage((UIImage(systemName: "heart.fill")), for: .normal)
         }
     }

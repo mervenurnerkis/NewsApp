@@ -27,15 +27,11 @@ class CreateAccountViewController: UIViewController {
             if error != nil {
                 print("error")
             }
-            else {
-                // Go to our home screen
-            }
-            
         }
     }
     
     @IBAction func signInAgaınClicked(_ sender: Any) {
-        
+        print("Sign In Again.")
     }
     
     

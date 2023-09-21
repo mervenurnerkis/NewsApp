@@ -1,31 +1,21 @@
 import UIKit
-import SideMenu
 import Combine
 
 class HomeVC: UIViewController, UISearchBarDelegate{
     
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var activityIndıcator: UIActivityIndicatorView!
-    
     @IBOutlet weak var searchBar: UISearchBar!
-    
     @IBOutlet weak var backViewSide: UIView!
     @IBOutlet weak var mainBackgroundView: UIView!
     
     var homeViewModel: HomeViewModel = HomeViewModel()
-    
-    var cellDataSource: [NewTableCellModel] = []
-    
     var searchKeyword = ""
-    
     let searchVC = UISearchController(searchResultsController: nil)
-    
     var articles: [Article] = []
-    
     var category: String = "default"
-    
     var isMenuOpen: Bool = false
+    var cancellables: Set<AnyCancellable> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,10 +24,6 @@ class HomeVC: UIViewController, UISearchBarDelegate{
         backViewSide.isHidden = true
         isMenuOpen = false
         self.navigationItem.setHidesBackButton(true, animated: true)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         homeViewModel.getData()
         homeViewModel.getCategoryData(category: self.category)
     }
@@ -68,45 +54,33 @@ class HomeVC: UIViewController, UISearchBarDelegate{
         
     }
     
-    
     func configView() {
-        setupTableView()
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.backgroundColor = .clear
+        self.registerCells()
     }
-    
-    var cancellables: Set<AnyCancellable> = []  
     
     func bindViewModel() {
-        
-        homeViewModel.isLoading
-            .sink { [weak self] isLoading in
-                DispatchQueue.main.async {
-                    if isLoading {
-                        self?.activityIndıcator.startAnimating()
-                        self?.activityIndıcator.isHidden = false // Görünür yap
-                    } else {
-                        self?.activityIndıcator.stopAnimating()
-                        self?.activityIndıcator.isHidden = true  // Görünmez yap
-                    }
-                }
+        homeViewModel.bind(isLoadingHandler: { [weak self] isLoading in
+            if isLoading {
+                self?.activityIndıcator.startAnimating()
+                self?.activityIndıcator.isHidden = false
+            } else {
+                self?.activityIndıcator.stopAnimating()
+                self?.activityIndıcator.isHidden = true
             }
-            .store(in: &cancellables)
-
-        
-        homeViewModel.news
-            .sink { [weak self] news in
-                DispatchQueue.main.async {
-                    guard let news = news else { return }
-                    self?.cellDataSource = news
-                    self?.reloadTableView()
-                    self?.activityIndıcator.stopAnimating()
-                }
-            }
-            .store(in: &cancellables)
-        
+        }, newsHandler: { [weak self] news in
+            guard let news = news else { return }
+            self?.articles = news
+            self?.reloadTableView()
+            self?.activityIndıcator.stopAnimating()
+        })
     }
+
     
     func openDetail(newId: String) {
-        guard let news = homeViewModel.retriveNews(withId: newId) else {
+        guard let news = homeViewModel.retrieveNews(withTitle: newId) else {
             return
         }
         
@@ -124,16 +98,51 @@ class HomeVC: UIViewController, UISearchBarDelegate{
     
     func filterNews() {
         guard !searchKeyword.isEmpty else {
-            self.cellDataSource = homeViewModel.news.value ?? []
+            self.articles = homeViewModel.newsSubject.value ?? []
             reloadTableView()
             return
         }
         
-        self.cellDataSource = homeViewModel.news.value?.filter { viewModel in
-            return viewModel.title.lowercased().contains(searchKeyword.lowercased())
+        self.articles = homeViewModel.newsSubject.value?.filter { viewModel in
+            return viewModel.title!.lowercased().contains(searchKeyword.lowercased())
         } ?? []
         
         reloadTableView()
     }
     
+}
+
+extension HomeVC: UITableViewDelegate, UITableViewDataSource {
+    
+    func registerCells() {
+        tableView.register(HomeNewCell.register(), forCellReuseIdentifier: HomeNewCell.identifier)
+    }
+    
+    func reloadTableView() {
+        self.tableView.reloadData()
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return articles.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: HomeNewCell.identifier, for: indexPath) as! HomeNewCell
+        let article = articles[indexPath.row]
+        cell.setupCell(article: article)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedNewTitle = articles[indexPath.row].title
+        self.openDetail(newId: selectedNewTitle!)
+    }
 }

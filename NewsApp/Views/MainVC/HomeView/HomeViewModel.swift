@@ -1,29 +1,15 @@
-//
-//  HomeViewModel.swift
-//  NewsApp
-//
-//  Created by Merve Nur Nerkis on 7.09.2023.
-//
-
 import Foundation
 import Combine
 
 class HomeViewModel {
 
-    var dataSource: News?
+    var fetchedNews: News?
     var category: String = "default"
     var observerCategoryNews: Set<AnyCancellable> = []
     var observerNews: [AnyCancellable] = []
     var isLoading = CurrentValueSubject<Bool, Never>(false)
-    var news = CurrentValueSubject<[NewTableCellModel]?, Never>(nil)
-    
-    func numberOfSections() -> Int {
-        return 1
-    }
-    
-    func numberOfRows(in section: Int) -> Int {
-        return self.dataSource?.articles.count ?? 0
-    }
+    var newsSubject = CurrentValueSubject<[Article]?, Never>(nil)
+    var cancellables: Set<AnyCancellable> = []
     
     func getData() {
         if isLoading.value {
@@ -38,16 +24,23 @@ class HomeViewModel {
                 case .finished:
                     print("Finished")
                 case .failure(let error):
-                    print("\(error)")
+                    print("Error: \(error)")
                 }
             } receiveValue: { [weak self] news in
                 self?.isLoading.value = false
-                self?.dataSource = news
+                self?.fetchedNews = news
                 self?.mapNewsData()
-            }.store(in: &observerNews)
+                if news.articles == nil {
+                    if let message = news.message, let code = news.code {
+                        print("API Error: \(message), Code: \(code)")
+                    }
+                }
+            }
+            .store(in: &observerNews)
     }
-    
+
     func getCategoryData(category: String) {
+        
         if isLoading.value {
             return
         }
@@ -64,20 +57,40 @@ class HomeViewModel {
                 }
             } receiveValue: { [weak self] newsCategory in
                 self?.isLoading.value = false
-                self?.dataSource = newsCategory
+                self?.fetchedNews = newsCategory
                 self?.mapNewsData()
             }
             .store(in: &observerCategoryNews)
     }
-    
+
     func mapNewsData() {
-        news.value = self.dataSource?.articles.compactMap({NewTableCellModel(news: $0)})
-    }
-    
-    func retriveNews(withId title: String) -> Article? {
-        guard let news = dataSource?.articles.first(where: {$0.title == title}) else {
-            return nil
+        let filteredArticles = self.fetchedNews?.articles?.filter {
+            $0.title?.contains("[Removed]") == false
         }
-        return news
+        newsSubject.value = filteredArticles
+    }
+
+    
+    func retrieveNews(withTitle title: String) -> Article? {
+        return fetchedNews?.articles!.first(where: {$0.title == title})
+    }
+
+    func bind(isLoadingHandler: @escaping (Bool) -> Void, newsHandler: @escaping ([Article]?) -> Void) {
+        
+        isLoading
+            .sink { isLoading in
+                DispatchQueue.main.async {
+                    isLoadingHandler(isLoading)
+                }
+            }
+            .store(in: &cancellables)
+
+        newsSubject
+            .sink { news in
+                DispatchQueue.main.async {
+                    newsHandler(news)
+                }
+            }
+            .store(in: &cancellables)
     }
 }

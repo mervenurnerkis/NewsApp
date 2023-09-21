@@ -21,27 +21,19 @@ class HomeNewCell: UITableViewCell {
     }
     
     @IBOutlet weak var backView: UIView!
-    
     @IBOutlet weak var newTitle: UILabel!
-    
     @IBOutlet weak var newImageView: UIImageView!
-    
     @IBOutlet weak var newDescription: UILabel!
-    
-
     
     override func awakeFromNib() {
         super.awakeFromNib()
-    //    backView.addBorder(color: .label, width: 1)
-    
-        
-      //  newImageView.layer.cornerRadius = 5
     }
     
-    func setupCell(homeViewModel: NewTableCellModel) {
-        self.newTitle.text = homeViewModel.title
-        self.newDescription.text = homeViewModel.description
-        self.newImageView.sd_setImage(with: homeViewModel.imageUrl, completed: nil)  // SDWebImage kütüphanesi burada kullanılıyor
+    func setupCell(article: Article) {
+        self.newTitle.text = article.title ?? ""
+        self.newDescription.text = article.description ?? ""
+        self.newImageView.sd_setImage(with: URL(string: article.urlToImage ?? ""), completed: nil)
     }
+
     
 }

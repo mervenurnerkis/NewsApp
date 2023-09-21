@@ -7,25 +7,12 @@
 
 import Foundation
 
+enum Address: String {
+    case topHeadLines = "https://newsapi.org/v2/top-headlines"
+    case everything = "https://newsapi.org/v2/everything"
+}
+
 class NetworkConstant {
-    
-    public static var shared: NetworkConstant = NetworkConstant()
-    
-    public var apiKey: String {
-        get {
-            return "027c4dbd555e4ebfb1db490cdbbd9c3d"
-        }
-    }
-    //Addresses can be enum
-    enum Adress: String {
-        case server = "https://newsapi.org/"
-        case imageServer = "https://newsapi.org/v2/everything?sortBy=popularity&apiKey=027c4dbd555e4ebfb1db490cdbbd9c3d"
-        case searchUrlAdress = "https://newsapi.org/v2/everything?sortBy=popularity&apiKey=661568f9076748639622adc1d4b58bf9&q="
-    }
- 
-    public var  serverAdress: String {
-        get {
-            return "https://newsapi.org/"
-        }
-    }
+    public var shared: NetworkConstant = NetworkConstant()
+    static let apiKey: String = "e5cb123197824efc9786f09bb56d69f9"
 }

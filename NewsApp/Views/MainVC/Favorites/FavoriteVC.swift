@@ -60,6 +60,7 @@ class FavoriteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 
                 if let title = article.title {
                     UserDefaults.standard.removeObject(forKey: "favorite_\(title)")
+                    UserDefaults.standard.synchronize()
                 }
 
                 tableView.deleteRows(at: [indexPath], with: .automatic)
@@ -67,7 +68,15 @@ class FavoriteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
        
         }
     }
-
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row < favoriteNews.count {
+            let selectedArticle = favoriteNews[indexPath.row]
+            let detailViewModel = DetailsNewsViewModel(article: selectedArticle)
+            let detailsVC = DetailsNewVC(viewModel: detailViewModel)
+            navigationController?.pushViewController(detailsVC, animated: true)
+        }
+    }
     
     func updateFavoriteArticles() {
         let allArticles:[Article] = []
@@ -82,8 +91,6 @@ class FavoriteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         if let encoded = try? encoder.encode(favoriteNews) {
             UserDefaults.standard.set(encoded, forKey: "favoriteNews")
         }
-        
-        
     }
 }
 
